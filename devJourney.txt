@@ -1,0 +1,32 @@
+must place all the files inside src/mai/java/com/meta/fb
+anything Java outside of this cant be talked by spring
+
+There are 2 ways to layer out the project
+1.
+use folders structure
+src/mai/java/com/meta/fb/controllers
+src/mai/java/com/meta/fb/services
+src/mai/java/com/meta/fb/routes
+but here the controllers need to talk to any other e.g. fooController talks to fooServices so both
+needs to be public(not good practise)
+
+2.
+layer out on basis of feature like src/mai/java/com/meta/fb/foo which contains
+fooController, fooServices, fooOthers
+
+
+create a new package inside main dir
+OPTIONAL:
+new class
+declare vars
+write contructor
+create getter and setter
+create hashCode and equals 
+create otString
+TO BE DONE:
+new record
+create vars inside it
+
+create controller
+could use @RequestMapping(path,reqtype)
+or use GetMapping, PUtMapping, etc.
