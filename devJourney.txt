@@ -74,4 +74,4 @@ is restClient
 either create every thing by yourself liken in UserRestCLient.java
 or use builtin UserHttpClient (but have to specify it in main Application.java) and import in UserCOntroller.java
 
-Tests are something done outside of the scope of spring
+Tests are something done outside of the scope of spring unless you use @SpringBootTest (loads whole app) or use @[slice]Test (loads that package)
