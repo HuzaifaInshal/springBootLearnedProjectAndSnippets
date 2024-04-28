@@ -106,15 +106,27 @@ package com.meta.facebook.Run;
 
 // Run is the model in MVC
 import java.time.LocalDateTime;
+
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Positive;
 //records are immutable they dont have setters we cant change them
 public record Run(
 		 Integer id,
+		 @NotEmpty
 		 String title,
 		 LocalDateTime startedOn,
 		 LocalDateTime completedOn,
+		 @Positive
 		 Integer miles,
 		 Location location
 		) {
-
+	public Run{
+		if(!completedOn.isAfter(startedOn)) {
+			throw new IllegalArgumentException("CompletedOn must be after started on!!");
+		}
+//		if(title.isBlank()) {
+//			
+//		}
+	}
 }
 

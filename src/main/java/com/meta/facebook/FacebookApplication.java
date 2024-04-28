@@ -24,11 +24,13 @@ public class FacebookApplication {
 	
 	
 	@Bean
-	CommandLineRunner runner() {
+//	CommandLineRunner runner(RunRepository runRepository) {
+	CommandLineRunner runner(RunRepository runRepository) {
 		// a command line runner is something that runs after the entire app context or containers of the beans has been created
 		return args -> {
-			Run run = new Run(1,"First run",LocalDateTime.now(),LocalDateTime.now().plus(1,ChronoUnit.HOURS),5,Location.OUTDOOR);
-			log.info("Run: "+run);
+			Run run = new Run(2,"First run",LocalDateTime.now(),LocalDateTime.now().plus(1,ChronoUnit.HOURS),5,Location.OUTDOOR);
+//			log.info("Run: "+run);
+//			runRepository.create(run);
 		};
 	}
 

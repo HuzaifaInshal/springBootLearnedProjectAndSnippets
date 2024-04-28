@@ -30,3 +30,48 @@ create vars inside it
 create controller
 could use @RequestMapping(path,reqtype)
 or use GetMapping, PUtMapping, etc.
+
+controllers are used for routing, repositories are used for controlling things
+
+Some Life cycle methods of a bean
+@POstConstruct --> is auto call after class is created in spring boot context/container; 
+
+Databases:
+h2 database with JDBC API implements (prev both are dependencies) an in memory database
+create a schema (structure) of DB with name schema.sql
+create test.mv.db in specified path
+
+Dependency Injection means we will inject it in constructor and assign to one of the fields/variable
+
+if a value is passed in constructor thats arguements but if a class is passed its DI, if a function is passed then thats a higher order function or callback concept
+
+in data.sql
+
+INSERT INTO Run(id,title,started_on,completed_on,miles,location)
+VALUES(1,'Morning','2024-01-01 06:00:00','2024-01-01 07:00:00',5,'OUTDOOR');
+
+TOPICS SKIPPED FOR WIRTING
+PostgreSQL with Docker
+Spring Data JDBC (provdes a way to call some functions to interact withdb, doesn`t needsto create any methods of your own)
+RestClients (use to communicate with other service usually in a microservice environment)
+tests
+	
+Spring Data JDBC provide CRUD functions that can be called directly in Run Controller without needs to be specified in Repository
+There are also some out of the box specialized CRUD options like searchByLocation that are automatically present in Spring Data JDBC
+these however needs to be just declared in respository and can be called in controller
+List<Run> findByLocation(String location);
+
+you can also do like 
+
+@Query(and then define your own custom query here)
+List<Run> findByLocation(String location);
+or
+@Query(and then define your own custom query here)
+List<Run> customMethod(String location);
+
+
+is restClient
+either create every thing by yourself liken in UserRestCLient.java
+or use builtin UserHttpClient (but have to specify it in main Application.java) and import in UserCOntroller.java
+
+Tests are something done outside of the scope of spring
